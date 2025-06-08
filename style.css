@@ -1,0 +1,257 @@
+css ของหน้านี้
+/* ป้องกันเลื่อนซ้ายขวานอกจอ และเพิ่ม smooth scroll บนมือถือ */
+body {
+  margin-bottom: 90px;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ตั้งค่า box-sizing ให้ทุก element */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Custom style สำหรับปุ่มไอคอนลอย */
+.icon-button {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+  user-select: none;
+}
+.icon-button:hover, .icon-button:focus {
+  background-color: #cabfbf;
+  transform: scale(1.1);
+}
+.icon-button:active {
+  transform: scale(0.95);
+}
+
+/* Hero overlay */
+.background-container {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  height: 300px; /* ความสูง Desktop เริ่มต้น */
+  overflow: hidden;
+  margin: 0 auto; /* จัดกึ่งกลาง */
+}
+
+/* overlay สีดำโปร่งแสง */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+/* รูปภาพ พื้นหลังจริง */
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  z-index: 5;
+}
+
+/* เนื้อหา ข้อความ */
+.content {
+  position: relative;
+  z-index: 20;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.content h1 {
+  color: rgb(23, 21, 21);
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  line-height: 1.2;
+  margin: 0 1rem;
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  word-break: break-word;
+}
+
+/* ปรับขนาด container และภาพเมื่อหน้าจอเล็ก (มือถือ) */
+@media (max-width: 640px) {
+  .background-container {
+    height: 200px; /* ปรับความสูงให้เล็กลง */
+  }
+
+  .background-image {
+    width: 100vw;  /* ให้ภาพกว้างเต็มจอมือถือ */
+    height: auto;  /* ปรับสูงตามอัตราส่วน */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+
+  .content h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* === Responsive Hero === */
+.hero-container {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+@media screen and (min-width: 640px) {
+  .hero-container {
+    height: 400px;
+  }
+}
+.hero-container img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.hero-background {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(15, 14, 14, 0.5);
+  z-index: 10;
+}
+.hero-text {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 2.25rem;
+  font-weight: 500;
+  color: rgb(213, 198, 198);
+  text-shadow: 0 0 5px black;
+}
+
+/* === Toolbar responsive === */
+.tool-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #171717;
+  
+}
+.display-button {
+  display: flex;
+  gap: 1rem;
+}
+
+.display-button svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-bottom: 0.25rem;
+  color: white;
+}
+
+/* === Dropdown improvements === */
+.dropdown-menu {
+  min-width: 8rem;
+  background-color: #285656;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  border-radius: 0.375rem;
+  padding: 0.5rem 0;
+  color: rgb(13, 13, 13);
+  z-index: 50;
+}
+
+
+/* === Image Gallery responsive === */
+.img-expanded {
+  height: auto !important;
+  max-height: 100vh;
+  object-fit: contain !important;
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.1);
+}
+
+.preview-image {
+  width: 100%;
+  height: 15rem;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.preview-image:hover {
+  transform: scale(1.05);
+}
+
+
+
+
+/* === Share button group responsive === */
+.share-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #171717;
+}
+
+.line-icon {
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: 0.25rem;
+}
+
+/* General text color */
+.selectable {
+  cursor: pointer;
+  outline: 10px solid #252525; /* สีฟ้า */
+  outline-offset: 4px;
+  transition: outline 0.2s ease;
+}
+
+.image-item.selectable a[download] {
+  display: none;
+}
+.image-item.selected {
+  background-color: rgba(59, 130, 246, 0.3); /* พื้นหลังสีน้ำเงินอ่อนโปร่งแสง */
+  border-radius: 0.75rem; /* ถ้าต้องการให้ขอบโค้งเหมือนรูป */
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.6); /* เพิ่มเงานิดหน่อย */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+   filter: brightness(0.7) saturate(1.2);
+}
+
+
+
+
+
+/* ปรับขนาดปุ่มและไอคอนให้ responsive */
+@media (max-width: 640px) {
+  .button {
+    flex: 1 1 25%; /* บนมือถือให้แสดง 4 ปุ่มในแถว */
+    max-width: none;
+    font-size: 0.7rem;
+    padding: 0.5rem 0.2rem;
+  }
+}
+
+.button svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+@media screen and (min-width: 640px) {
+  .button svg {
+    width: 2rem;
+    height: 2rem;
+  }
+}
