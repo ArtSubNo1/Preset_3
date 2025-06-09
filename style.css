@@ -1,7 +1,7 @@
 css ของหน้านี้
 /* ป้องกันเลื่อนซ้ายขวานอกจอ และเพิ่ม smooth scroll บนมือถือ */
 body {
-  margin-bottom: 90px;
+ 
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
@@ -201,7 +201,7 @@ body {
   justify-content: center;
   gap: 1rem;
   padding: 1rem;
-  background-color: #171717;
+  background-color: #000000;
 }
 
 .line-icon {
@@ -213,7 +213,7 @@ body {
 /* General text color */
 .selectable {
   cursor: pointer;
-  outline: 10px solid #252525; /* สีฟ้า */
+  outline: 10px solid #fffdfd; /* สีฟ้า */
   outline-offset: 4px;
   transition: outline 0.2s ease;
 }
@@ -222,9 +222,9 @@ body {
   display: none;
 }
 .image-item.selected {
-  background-color: rgba(59, 130, 246, 0.3); /* พื้นหลังสีน้ำเงินอ่อนโปร่งแสง */
+  background-color: rgba(28, 171, 20, 0.745); /* พื้นหลังสีน้ำเงินอ่อนโปร่งแสง */
   border-radius: 0.75rem; /* ถ้าต้องการให้ขอบโค้งเหมือนรูป */
-  box-shadow: 0 0 10px rgba(59, 130, 246, 0.6); /* เพิ่มเงานิดหน่อย */
+  box-shadow: 0 0 10px rgb(21, 190, 49); /* เพิ่มเงานิดหน่อย */
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
    filter: brightness(0.7) saturate(1.2);
 }
